@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Поисковик";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/Scripts/jquery")
+    @Scripts.Render("~/Scripts/popper")
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="container" style="height:100%">
+        <div class="row align-items-start">
+            <h1>Привет! Здесь вы можете сохранять результаты поисковых запросов в локальную базу знаний</h1>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-md-4 col-sm-12">
+                <div class="card text-white bg-success">
+                    <div class="card-body">
+                        <h5 class="card-title">Управление поисковыми системами</h5>
+                        <p class="card-text">Добавляйте новые поисковые системы, удаляйте ненужные.</p>
+                        @Html.ActionLink("Поисковые системы", "Index", "SearchEngine", new { }, new { @class = "btn btn-light" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="card text-white bg-info">
+                    <div class="card-body">
+                        <h5 class="card-title">Поиск в интернете</h5>
+                        <p class="card-text">Результаты поиска от поисковых систем, которые поступили первыми, сохранятся в локальной базе знаний. Позже вы можете выполнять поиск по локальной базе знаний.</p>
+                        @Html.ActionLink("Искать в интернете", "Index", "InternetSearch", new { }, new { @class = "btn btn-light" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="card text-white bg-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title">Поиск в базе знаний</h5>
+                        <p class="card-text">Поиск по данным, хранящимся в локальной базе знаний.</p>
+                        @Html.ActionLink("Искать в базе знаний", "Index", "LocalSearch", new { }, new { @class = "btn btn-light" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

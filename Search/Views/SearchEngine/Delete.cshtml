@@ -1,0 +1,45 @@
+﻿@model Search.Models.SearchEngine
+
+@{
+    ViewBag.Title = "Удаление поисковой системы";
+    Layout = "~/Views/Master/Master.cshtml";
+}
+
+<h2>Удаление поисковой системы</h2>
+
+<h3>Вы уверены, что хотите удалить поисковую систему из списка?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.URL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.URL)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <div class="col-md-offset-2 col-md-1 input-group-btn" style="display:inline-block">
+            @Html.ActionLink("Отмена", "Index", new { }, new { @class = "btn btn-primary", role = "button" })
+        </div>
+        <div class="col-md-offset-2 col-md-1 input-group-btn" style="display:inline-block">
+            <input type="submit" value="Удалить" class="btn btn-success" />
+        </div>
+    </div>
+
+    }
+</div>

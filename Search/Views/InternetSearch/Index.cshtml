@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Search.Models.Link>
+
+@{
+    ViewBag.Title = "Поиск в Интернете";
+    Layout = "~/Views/Master/Master.cshtml";
+}
+
+<h2>Поиск в интернете</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="query" name="query" placeholder="Что ищем?" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <input class="input-group-text" value="Найти" type="submit" id="basic-addon2" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="container">
+    @if (Model == null)
+    {
+        <p>Ничего не найдено</p>
+    }
+    else
+    {
+        foreach (var link in Model)
+        {
+        <div class="card-body" style="padding: 0.5rem;">
+            <a class="card-title" href="@link.URL">@link.Title</a>
+        </div>
+        }
+    }
+
+</div>

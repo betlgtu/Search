@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/Scripts/jquery")
+    @Scripts.Render("~/Scripts/popper")
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <nav class="nav justify-content-center">
+        @Html.ActionLink("Управление поисковыми системами", "Index", "SearchEngine", new { }, new { @class = "nav-link", role = "button" })
+        @Html.ActionLink("Поиск в Интернете", "Index", "InternetSearch", new { }, new { @class = "nav-link", role = "button" })
+        @Html.ActionLink("Поиск в базе знаний", "Index", "LocalDBSearch", new { }, new { @class = "nav-link", role = "button" })
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+</body>
+</html>

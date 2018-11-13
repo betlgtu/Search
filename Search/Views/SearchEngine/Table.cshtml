@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Search.Models.SearchEngine>
+
+@if (Model == null)
+{
+    <p>Поисковых систем нет в списке. @Html.ActionLink("Добавить", "Create")</p>
+}
+else
+{
+    <p>
+        @Html.ActionLink("Добавить поисковую систему", "Create")
+    </p>
+
+    <ul class="list-group">
+        @{
+            int i = 0;
+            foreach (var item in Model)
+            {
+                i++;
+        <li class="list-group-item list-group-item-primary">
+            @Html.ActionLink(item.Name, "Edit", new { id = item.Id })<span class="badge">: @item.URL</span>
+            @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+        </li>
+            }
+        }
+    </ul>
+}
