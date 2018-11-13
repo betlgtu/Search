@@ -201,6 +201,7 @@
     <Compile Include="App_Start\RoutesConfigurator.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GenericController.cs" />
+    <Compile Include="Controllers\IIndexController.cs" />
     <Compile Include="Controllers\InternetSearchController.cs" />
     <Compile Include="Controllers\LocalSearchController.cs" />
     <Compile Include="Controllers\MainController.cs" />

@@ -1,12 +1,10 @@
 ﻿using Search.Models;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace Search.Controllers
 {
-    public class LocalSearchController : BaseController
+    public class LocalSearchController : BaseController, IIndexController
     {
         public ActionResult Index()
         {

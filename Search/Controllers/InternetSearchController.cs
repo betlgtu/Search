@@ -1,14 +1,13 @@
 ﻿using Search.Models;
+using System;
 using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using System.Linq;
-using System.Collections.Generic;
-using System;
 
 namespace Search.Controllers
 {
-    public class InternetSearchController : BaseController
+    public class InternetSearchController : BaseController, IIndexController
     {
         public ActionResult Index()
         {
@@ -28,6 +27,11 @@ namespace Search.Controllers
             SearchEngine[] searchEngines = await searchContext.SearchEngines.ToArrayAsync();
             SearchExecutor searchExecutor = new SearchExecutor();
             QueryResult queryResult = await searchExecutor.SearchAsync(searchEngines, query);
+            if (queryResult == null)
+            {
+                return View("Index", null);
+            }
+
             AnchorParser anchorParser = new AnchorParser();
             Link[] links = anchorParser.ParseLinks(queryResult.SearchEngine.Domain, queryResult.SearchResult);
 

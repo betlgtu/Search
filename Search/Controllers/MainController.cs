@@ -2,9 +2,8 @@
 
 namespace Search.Controllers
 {
-    public class MainController : Controller
+    public class MainController : Controller, IIndexController
     {
-        // GET: Main
         public ActionResult Index()
         {
             return View();

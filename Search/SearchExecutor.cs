@@ -21,14 +21,18 @@ namespace Search
 
         public async Task<QueryResult> SearchAsync(SearchEngine[] searchEngines, string query)
         {
-            CancellationTokenSource cts = new CancellationTokenSource();
-            
-            IEnumerable<Task<QueryResult>> searchTasks = searchEngines.Select(searchEngine => SearchAsync(searchEngine, query, cts.Token));
-            Task<QueryResult> searchResult = await Task.WhenAny(searchTasks);
-
-            cts.Cancel();
-
-            return await searchResult;
+            if (searchEngines == null || searchEngines.Length <= 0)
+            {
+                return null;
+            }
+            else
+            {
+                CancellationTokenSource cts = new CancellationTokenSource();
+                IEnumerable<Task<QueryResult>> searchTasks = searchEngines.Select(searchEngine => SearchAsync(searchEngine, query, cts.Token));
+                Task<QueryResult> searchResult = await Task.WhenAny(searchTasks);
+                cts.Cancel();
+                return await searchResult;
+            }
         }
     }
 }

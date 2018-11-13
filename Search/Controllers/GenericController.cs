@@ -13,7 +13,7 @@ namespace Search.Controllers
     {
         protected abstract DbSet<T> DbSet { get; }
         protected virtual int PageSize => 10;
-
+        
         public async Task<ActionResult> Index(int skip = 0)
         {
             List<T> entities = await DbSet.OrderBy(e => e.Id)
