@@ -250,7 +250,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CSS\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Generic\" />
   </ItemGroup>
