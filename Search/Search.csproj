@@ -130,10 +130,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Search.mdf" />
-    <Content Include="App_Data\SearchTest.mdf" />
-    <Content Include="App_Data\SearchTest_log.ldf">
-      <DependentUpon>SearchTest.mdf</DependentUpon>
-    </Content>
     <Content Include="App_Data\Search_log.ldf">
       <DependentUpon>Search.mdf</DependentUpon>
     </Content>
@@ -249,10 +245,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Base\" />
-    <Folder Include="Views\Generic\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
